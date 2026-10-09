@@ -1,0 +1,106 @@
+{
+	"Name": "Larpatron 3000",
+	"Description": "[[ @salazzie ]]",
+	"LoadPriority": 69420,
+	"Version": "1.0.0",
+	"Scripts": [
+		{
+			"Path": "larpatron_CL.nut",
+			"RunOn": "CLIENT && MP",
+			"ClientCallback": {
+				"After": "larpatron_CL_Init"
+			}
+		},
+		{
+			"Path": "larpatron_UI.nut",
+			"RunOn": "UI",
+			"UICallback": {
+				"Before": "larpatron_UI_Init"
+			}
+		},
+		{
+			"Path": "stryder_parser.nut",
+			"RunOn": "CLIENT || UI"
+		}
+	],
+	"ConVars": [
+		{
+			"Name": "cv_larpatron3000_allLobbyUIDs",
+			"DefaultValue": ""
+		}
+	],
+	"ConCommands": [
+		{
+			"Name": "impersonate",
+			"Function": "impersonate",
+			"HelpString": "Impersonate a player (custom dll required, looks weird for vanilloids) - Usage: impersonate \"<player namepart>\" \"<message>\"",
+			"Context": "CLIENT"
+		},
+		{
+			"Name": "spoofNetworkName",
+			"Function": "spoofNetworkName",
+			"HelpString": "Spoof your name when chatting in networks (this gets automatically reset) - Usage: spoofNetworkName \"<name>\" (\\\\n for newlines)",
+			"Context": "UI"
+		},
+		{
+			"Name": "spoofNetworkName_inf",
+			"Function": "spoofNetworkName_inf",
+			"HelpString": "Keep spoofing your name when chatting in networks (the name gets automatically re-spoofed every 5s) - Usage: spoofNetworkName_inf \"<name>\"",
+			"Context": "UI"
+		},
+		{
+			"Name": "clearNetworkName",
+			"Function": "clearNetworkName",
+			"HelpString": "Restore your default network chat name (this also stops the _inf spoof) - Usage: clearNetworkName",
+			"Context": "UI"
+		},
+		{
+			"Name": "sendNetworkMsg",
+			"Function": "sendNetworkMsg",
+			"HelpString": "Send a message to your current network - Usage: sendNetworkMsg \"<message>\" optional: \"<name>\" \"<room>\"",
+			"Context": "UI"
+		},
+		{
+			"Name": "getRoomForCommunity",
+			"Function": "getRoomForCommunity",
+			"HelpString": "Get the current room",
+			"Context": "UI"
+		},
+		{
+			"Name": "viewUser",
+			"Function": "viewUser",
+			"HelpString": "Print user data for the specified uid - Usage: viewUser \"<uid\"",
+			"Context": "UI"
+		},
+		{
+			"Name": "inviteToCommunity",
+			"Function": "inviteToCommunity",
+			"HelpString": "Invite user or entire lobby to a community - Usage: inviteToCommunity \"<community id>\" \"<uid>\" OR: \"true\"",
+			"Context": "UI"
+		},
+		{
+			"Name": "sendOpenInvite",
+			"Function": "sendOpenInvite",
+			"HelpString": "Start open invite - Usage: sendOpenInvite \"<communityID>\" optional: \"<name>\" \"<duration>\" \"<playlist>\" \"<numSlots>\"",
+			"Context": "UI"
+		},
+		{
+			"Name": "scan4parties",
+			"Function": "scan4parties",
+			"HelpString": "Scan a network for open parties - Usage: scan4parties \"<communityID>\"",
+			"Context": "UI"
+		},
+		{
+			"Name": "bigScan4parties",
+			"Function": "bigScan4parties",
+			"HelpString": "Scan *many* networks for open parties - Usage: bigScan4parties \"<max communities>\" \"<min members>\"",
+			"Context": "UI"
+		},
+		{
+			"Name": "viewCommunity",
+			"Function": "viewCommunity",
+			"HelpString": "Print community data for the specified community id - Usage: viewCommunity \"<community id>\"",
+			"Context": "UI"
+		}
+	]
+}
